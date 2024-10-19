@@ -27,4 +27,23 @@ function useStruct(wasmModule, struct) {
 	return wasmModule.use_struct(struct.some, struct.other, 0, struct.test);
 }
 
-module.exports = { getSecondCharacter, addition, PaddingStructExample, useStruct }
+class ReturnStruct {
+	constructor(i, j, k) {
+		this.i = i;
+		this.j = j;
+		this.k = k;
+	}
+}
+
+function getStruct(wasmModule) {
+	const structBuffer = new DataView(wasmModule.memory.buffer, 0, 12);
+
+	wasmModule.get_struct(structBuffer);
+
+	let i = structBuffer.getInt32(0, true);
+	let j = structBuffer.getInt32(4, true);
+	let k = structBuffer.getInt32(8, true);
+	return new ReturnStruct(i, j, k);
+}
+
+module.exports = { getSecondCharacter, addition, PaddingStructExample, useStruct, getStruct }

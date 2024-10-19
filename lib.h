@@ -14,4 +14,12 @@ struct PaddingStructExample {
 
 int8_t use_struct(struct PaddingStructExample);
 
+struct ReturnStruct {
+	int32_t i;
+	int32_t j;
+	int32_t k;
+};
+
+struct ReturnStruct get_struct();
+
 #endif

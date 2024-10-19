@@ -24,3 +24,15 @@ pub struct PaddingStructExample {
 pub extern "C" fn use_struct(s : PaddingStructExample) -> i16 {
 	s.test
 }
+
+#[repr(C)]
+pub struct ReturnStruct {
+	i : i32,
+	j : i32,
+	k : i32
+}
+
+#[no_mangle]
+pub extern "C" fn get_struct() -> ReturnStruct {
+	ReturnStruct { i: 42, j: 1, k: 102 }
+}

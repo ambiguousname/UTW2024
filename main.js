@@ -8,5 +8,6 @@ WebAssembly.instantiate(wasmRead).then(
 		console.log(lib.getSecondCharacter(wasmModule.instance.exports, "Testing"));
 		console.log(lib.addition(wasmModule.instance.exports, 1, 10000));
 		console.log(lib.useStruct(wasmModule.instance.exports, new lib.PaddingStructExample(0, 0, 50)));
+		console.log(lib.getStruct(wasmModule.instance.exports));
 	}
 );

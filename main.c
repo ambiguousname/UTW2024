@@ -8,5 +8,7 @@ int main() {
 
 	struct PaddingStructExample a = {0, 5, 10};
 	printf("%i", use_struct(a));
+
+	printf("%i", get_struct().i);
 	return 0;
 }
